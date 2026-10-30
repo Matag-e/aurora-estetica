@@ -1,6 +1,6 @@
 export const site = {
   name: 'Aurora Estética',
-  email: 'backupwpp1910@gmail.com',
+  email: 'emailteste@teste.com',
   whatsappNumber: '',
   whatsappMessage: 'Olá, Aurora Estética! Gostaria de saber mais sobre os cuidados e o atendimento.',
 };

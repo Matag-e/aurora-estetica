@@ -19,10 +19,9 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <span aria-hidden="true">{diagonal ? '↗' : '→'}</span>;
 }
 
-function Photo({ variant, label }: { variant: 'hero' | 'space'; label: string }) {
+function Photo({ variant, label, src }: { variant: 'hero' | 'space'; label: string; src?: string }) {
   return <div className={`photo photo--${variant}`} role="img" aria-label={`Placeholder de fotografia: ${label}`}>
-    <div className="photo-arch" aria-hidden="true"><div className="photo-orb" /><div className="photo-stone" /></div>
-    <span className="photo-caption">Fotografia a inserir <span aria-hidden="true">/</span> {label}</span>
+    {src ? <img className="photo-image" src={src} alt={label} /> : <div className="photo-arch" aria-hidden="true"><div className="photo-orb" /><div className="photo-stone" /></div>}
   </div>;
 }
 
@@ -61,12 +60,12 @@ export default function App() {
     <main id="conteudo">
       <section className="hero section-shell" id="inicio" aria-labelledby="hero-title">
         <div className="hero-copy"><p className="eyebrow"><span className="tiny-sun" aria-hidden="true">✳</span> O SEU MOMENTO DE CUIDADO</p><h1 id="hero-title">Sua beleza,<br />em <em>essência.</em></h1><p className="hero-description">Cuidar de si é voltar ao que faz você se sentir bem. Na Aurora, sua pele recebe um olhar individual e sua beleza natural encontra espaço.</p><a className="button button-dark" href="#contato">Encontre seu cuidado <Arrow diagonal /></a><p className="hero-note">Tratamentos faciais · Pele · Estética não invasiva</p></div>
-        <div className="hero-visual"><Photo variant="hero" label="beleza natural" /><span className="visual-seal" aria-hidden="true">BELEZA<br /><i>com</i><br />NATURALIDADE</span></div>
+        <div className="hero-visual"><Photo variant="hero" src="/images/mulher.png" label="beleza natural" /><span className="visual-seal" aria-hidden="true">BELEZA<br /><i>com</i><br />NATURALIDADE</span></div>
         <div className="hero-bottom"><span>UM NOVO OLHAR PARA VOCÊ</span><a href="#essencia">Explore a Aurora <span aria-hidden="true">↓</span></a></div>
       </section>
       <div className="values-strip" aria-label="Nossa proposta"><span>Cuidado com intenção</span><span aria-hidden="true">✳</span><span>Beleza natural</span><span aria-hidden="true">✳</span><span>Acolhimento em cada detalhe</span></div>
       <section id="essencia" className="about section-shell section-space" aria-labelledby="about-title">
-        <div className="about-visual"><Photo variant="space" label="ambiente da clínica" /><span className="image-footnote">Um espaço para desacelerar e cuidar de você.</span></div>
+        <div className="about-visual"><Photo variant="space" src="/images/clinica.png" label="ambiente da clínica" /><span className="image-footnote">Um espaço para desacelerar e cuidar de você.</span></div>
         <div className="about-copy"><p className="eyebrow">01 / NOSSA ESSÊNCIA</p><h2 id="about-title">O cuidado começa<br />em <em>você.</em></h2><p>A Aurora Estética é um espaço dedicado aos tratamentos faciais, aos cuidados com a pele e à estética não invasiva.</p><p>Acreditamos em um atendimento que escuta, acolhe e respeita sua individualidade. Uma experiência pensada para valorizar o que já é seu: sua beleza natural.</p><a className="text-link" href="#cuidados">Conheça nossos cuidados <Arrow /></a></div>
       </section>
       <section id="cuidados" className="care section-space" aria-labelledby="care-title"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">02 / POSSIBILIDADES DE CUIDADO</p><h2 id="care-title">Sua pele. Seu tempo.<br /><em>Seu cuidado.</em></h2></div><p>O primeiro passo é entender você.<br />Explore nossas áreas de atuação e converse com a equipe sobre as opções disponíveis.</p></div>
